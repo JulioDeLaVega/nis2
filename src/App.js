@@ -80,24 +80,16 @@ function App() {
   
 
   return (
-    <div className="container">
-
-      <div></div>
+    <div>
 
       <div className="Cont1">
-      <h1>NIS2 compliance questionnaire</h1>
       
-      <br></br>
-      <br></br>
-
-      <p>The NIS2 Directive is the EU-wide legislation on cybersecurity. It provides legal measures to boost the overall level of cybersecurity. It will be applicable in October 2024.</p>
-      <br></br>
       <div className="box">
-        <h3 style={{color:"darkblue"}}><FontAwesomeIcon icon={faMapPin}/>&nbsp;&nbsp;Scope</h3>
+        <h3 style={{color:"darkblue"}}><FontAwesomeIcon icon={faMapPin}/>&nbsp;&nbsp;The impact of the NIS2 directive on your organization</h3>
         <br></br>
         <p><b>Sector - Is your organization operating in a sector critical for society?</b></p>
 
-        <p style={{color:"grey"}}>Sectors in Article 2&nbsp;&nbsp;<span className="sectors click" onClick={ () => setShowsector2(!showsector2)}>what are those?</span></p>
+        <p style={{color:"grey"}}>Sectors in Article 2&nbsp;&nbsp;<span className="sectors click" onClick={ () => setShowsector2(!showsector2)}>Click here to see all sectors</span></p>
         {showsector2 ?
           <div className="sectors">
             <li>Provider of public electronic communications network or services</li>
@@ -109,10 +101,11 @@ function App() {
             <li>The entity is public administration</li>
           </div>:<></>}
 
-        <Form.Check type="switch" id="default-radio" label="" onChange={ () => setOption1(!option1)}/>
+        <Form.Check style={{float:"left", display:"flex"}} type="switch" id="default-radio" label="" onChange={ () => setOption1(!option1)}/>
+        {option1 ? <p>&nbsp;Yes</p>:<p style={{color:"grey"}}>&nbsp;No</p>}
         <br></br>
 
-        <p style={{color:"grey"}}>Sectors in Annex 1 and 2&nbsp;&nbsp;<span className="sectors click" onClick={ () => setShowsector(!showsector)}>what are those?</span></p>
+        <p style={{color:"grey"}}>Sectors in Annex 1 and 2&nbsp;&nbsp;<span className="sectors click" onClick={ () => setShowsector(!showsector)}>Click here to see all sectors</span></p>
           
           {showsector ?
           <div className="sectors">
@@ -135,12 +128,16 @@ function App() {
             <li>Research</li>
           </div>:<></>}
 
-          <Form.Check type="switch" id="default-radio" label="" onChange={ () => setOption3(!option3)}/>
-            
-            <br></br>
+           
+          <Form.Check style={{float:"left", display:"flex"}} type="switch" id="default-radio" label="" onChange={ () => setOption3(!option3)}/>
+          {option3 ? <p>&nbsp;Yes</p>:<p style={{color:"grey"}}>&nbsp;No</p>}
+          <br></br>
+          
+         
       
-        <p><b>Size - Does your organization have an annual turnover of more than 10Mio euros <b>or</b> employ more than 50 employees?</b></p>
-        <Form.Check type="switch" id="default-radio" label="" onChange={ () => setOption2(!option2)}/>
+        <p className="nofloat"><b>Size - Does your organization have an annual turnover of over 10Mio euros, or does it employ more than 50 employees?</b></p>
+        <Form.Check style={{float:"left", display:"flex"}} type="switch" id="default-radio" label="" onChange={ () => setOption2(!option2)}/>
+        {option2 ? <p>&nbsp;Yes</p>:<p style={{color:"grey"}}>&nbsp;No</p>}
         <br></br>
 
           
@@ -153,77 +150,80 @@ function App() {
 
 
         <div className="box">
-        <h3 style={{color:"darkblue"}}><FontAwesomeIcon icon={faClipboard}/>&nbsp;&nbsp;Minimum cybersecurity measures</h3>
+        <h3 style={{color:"darkblue"}}><FontAwesomeIcon icon={faClipboard}/>&nbsp;&nbsp;Level of minimum cybersecurity measures based on Article 21</h3>
         <br></br>
         
         
         <br></br>
         <p><b>Does your organization have incident reporting mechanisms in place for cybersecurity events?</b></p>
-        <Form.Check type="switch" id="default-radio" label="" onChange={ () => setOption5(!option5)}/>
+        <Form.Check style={{float:"left", display:"flex"}} type="switch" id="default-radio" label="" onChange={ () => setOption5(!option5)}/>
+        {option5 ? <p>&nbsp;Yes</p>:<p style={{color:"grey"}}>&nbsp;No</p>}
 
         <br></br>
         <p><b>Is your top management involved in cybersecurity and trained accordingly?</b></p>
-        <Form.Check type="switch" id="default-radio" label="" onChange={ () => setOption6(!option6)}/>
+        <Form.Check style={{float:"left", display:"flex"}} type="switch" id="default-radio" label="" onChange={ () => setOption6(!option6)}/>
+        {option6 ? <p>&nbsp;Yes</p>:<p style={{color:"grey"}}>&nbsp;No</p>}
 
         <br></br>
         <p><b>What cybersecurity measures, such as encryption, multi-factor authentication, and zero-trust
 architecture, has your organization implemented based on Article 21?</b></p>
         
-        <p>
-        <>Policies on risk analysis and information system security</>
-        <Form.Check type="switch" id="default-radio" label="" onChange={ () => setOption7(!option7)}/>
-        </p>
 
-        <p>
-        <>Incident handling procedures</>
-        <Form.Check type="switch" id="default-radio" label="" onChange={ () => setOption8(!option8)}/>
-        </p>
-          
-        <p>
-        <>Business continuity practices (backup, recovery, crisis management)</>
-        <Form.Check type="switch" id="default-radio" label="" onChange={ () => setOption9(!option9)}/>
-        </p>
+        <p>Policies on risk analysis and information system security</p>
+        <Form.Check style={{float:"left", display:"flex"}} type="switch" id="default-radio" label="" onChange={ () => setOption7(!option7)}/>
+        {option7 ? <p>&nbsp;Yes</p>:<p style={{color:"grey"}}>&nbsp;No</p>}
 
-        <p>
-        <>Supply chain security policies with suppliers and service providers</>
-        <Form.Check type="switch" id="default-radio" label="" onChange={ () => setOption10(!option10)}/>
-        </p>
-
-        <p>
-        <>Security in network and information systems development, maintenance, and vulnerability
-handling</>
-        <Form.Check type="switch" id="default-radio" label="" onChange={ () => setOption11(!option11)}/>
-        </p>
         
-        <p>
-        <>Assessment of cybersecurity risk-management effectiveness</>
-        <Form.Check type="switch" id="default-radio" label="" onChange={ () => setOption12(!option12)}/>
-        </p>
+        <p>Incident handling procedures</p>
+        <Form.Check style={{float:"left", display:"flex"}} type="switch" id="default-radio" label="" onChange={ () => setOption8(!option8)}/>
+        {option8 ? <p>&nbsp;Yes</p>:<p style={{color:"grey"}}>&nbsp;No</p>}
+        
+          
 
-        <p>
-        <>Basic cyber hygiene practices and cybersecurity training</>
-        <Form.Check type="switch" id="default-radio" label="" onChange={ () => setOption13(!option13)}/>
-        </p>
+        <p>Business continuity practices (backup, recovery, crisis management)</p>
+        <Form.Check style={{float:"left", display:"flex"}} type="switch" id="default-radio" label="" onChange={ () => setOption9(!option9)}/>
+        {option9 ? <p>&nbsp;Yes</p>:<p style={{color:"grey"}}>&nbsp;No</p>}
+      
 
-        <p>
-        <>Cryptography and encryption procedures and policies</>
-        <Form.Check type="switch" id="default-radio" label="" onChange={ () => setOption14(!option14)}/>
-        </p>
+        <p>Supply chain security policies with suppliers and service providers</p>
+        <Form.Check style={{float:"left", display:"flex"}} type="switch" id="default-radio" label="" onChange={ () => setOption10(!option10)}/>
+        {option10 ? <p>&nbsp;Yes</p>:<p style={{color:"grey"}}>&nbsp;No</p>}
 
-        <p>
-        <>Human resources security, access control policies, and asset management</>
-        <Form.Check type="switch" id="default-radio" label="" onChange={ () => setOption15(!option15)}/>
-        </p>
+      
+        <p>Security in network and information systems development, maintenance, and vulnerability
+handling</p>
+        <Form.Check style={{float:"left", display:"flex"}} type="switch" id="default-radio" label="" onChange={ () => setOption11(!option11)}/>
+        {option11 ? <p>&nbsp;Yes</p>:<p style={{color:"grey"}}>&nbsp;No</p>}
+        
+        
+        <p>Assessment of cybersecurity risk-management effectiveness</p>
+        <Form.Check style={{float:"left", display:"flex"}} type="switch" id="default-radio" label="" onChange={ () => setOption12(!option12)}/>
+        {option12 ? <p>&nbsp;Yes</p>:<p style={{color:"grey"}}>&nbsp;No</p>}
 
-        <p>
-        <>Use of multi-factor authentication or authentication solutions</>
-        <Form.Check type="switch" id="default-radio" label="" onChange={ () => setOption16(!option16)}/>
-        </p>
+        
+        <p>Basic cyber hygiene practices and cybersecurity training</p>
+        <Form.Check style={{float:"left", display:"flex"}} type="switch" id="default-radio" label="" onChange={ () => setOption13(!option13)}/>
+        {option13 ? <p>&nbsp;Yes</p>:<p style={{color:"grey"}}>&nbsp;No</p>}
 
-        <p>
-        <>Secured voice, video, text, and emergency communication systems</>
-        <Form.Check type="switch" id="default-radio" label="" onChange={ () => setOption17(!option17)}/>
-        </p>
+      
+        <p>Cryptography and encryption procedures and policies</p>
+        <Form.Check style={{float:"left", display:"flex"}} type="switch" id="default-radio" label="" onChange={ () => setOption14(!option14)}/>
+        {option14 ? <p>&nbsp;Yes</p>:<p style={{color:"grey"}}>&nbsp;No</p>}
+
+      
+        <p>Human resources security, access control policies, and asset management</p>
+        <Form.Check style={{float:"left", display:"flex"}} type="switch" id="default-radio" label="" onChange={ () => setOption15(!option15)}/>
+        {option15 ? <p>&nbsp;Yes</p>:<p style={{color:"grey"}}>&nbsp;No</p>}
+
+        
+        <p>Use of multi-factor authentication or authentication solutions</p>
+        <Form.Check style={{float:"left", display:"flex"}} type="switch" id="default-radio" label="" onChange={ () => setOption16(!option16)}/>
+        {option16 ? <p>&nbsp;Yes</p>:<p style={{color:"grey"}}>&nbsp;No</p>}
+
+        
+        <p>Secured voice, video, text, and emergency communication systems</p>
+        <Form.Check style={{float:"left", display:"flex"}} type="switch" id="default-radio" label="" onChange={ () => setOption17(!option17)}/>
+        {option17 ? <p>&nbsp;Yes</p>:<p style={{color:"grey"}}>&nbsp;No</p>}
 
         
 

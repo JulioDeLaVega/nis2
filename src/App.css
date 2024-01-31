@@ -65,3 +65,13 @@ li{
 .left{
   left: 1em
 }
+
+.float{
+  float: left;
+}
+
+.nofloat{
+  float: none;
+  display: block;
+}
+
